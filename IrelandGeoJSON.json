@@ -1991,7 +1991,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEDL", 
-        "name": "Donegal"
+        "name": "Donegal",
+        "region": "Northern & Western"
       }, 
       "id": 1
     }, 
@@ -2975,7 +2976,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IELM", 
-        "name": "Leitrim"
+        "name": "Leitrim",
+        "region": "Northern & Western"
       }, 
       "id": 2
     }, 
@@ -3939,7 +3941,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IECN", 
-        "name": "Cavan"
+        "name": "Cavan",
+        "region": "Northern & Western"
       }, 
       "id": 3
     }, 
@@ -4599,7 +4602,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEMN", 
-        "name": "Monaghan"
+        "name": "Monaghan",
+        "region": "Northern & Western"
       }, 
       "id": 4
     }, 
@@ -5155,7 +5159,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IELH", 
-        "name": "Louth"
+        "name": "Louth",
+        "region": "Eastern & Midland"
       }, 
       "id": 5
     }, 
@@ -5903,7 +5908,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IED", 
-        "name": "Dublin"
+        "name": "Dublin",
+        "region": "Eastern & Midland"
       }, 
       "id": 6
     }, 
@@ -6859,7 +6865,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEWW", 
-        "name": "Wicklow"
+        "name": "Wicklow",
+        "region": "Eastern & Midland"
       }, 
       "id": 7
     }, 
@@ -7883,7 +7890,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEWX", 
-        "name": "Wexford"
+        "name": "Wexford",
+        "region": "Southern"
       }, 
       "id": 8
     }, 
@@ -8803,7 +8811,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEKK", 
-        "name": "Kilkenny"
+        "name": "Kilkenny",
+        "region": "Southern"
       }, 
       "id": 9
     }, 
@@ -9523,7 +9532,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEWD", 
-        "name": "Waterford"
+        "name": "Waterford",
+        "region": "Southern"
       }, 
       "id": 10
     }, 
@@ -12069,7 +12079,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IECO", 
-        "name": "Cork"
+        "name": "Cork",
+        "region": "Southern"
       }, 
       "id": 11
     }, 
@@ -14003,7 +14014,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEKY", 
-        "name": "Kerry"
+        "name": "Kerry",
+        "region": "Southern"
       }, 
       "id": 12
     }, 
@@ -15275,7 +15287,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IELK", 
-        "name": "Limerick"
+        "name": "Limerick",
+        "region": "Southern"
       }, 
       "id": 13
     }, 
@@ -16395,7 +16408,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IECE", 
-        "name": "Clare"
+        "name": "Clare",
+        "region": "Southern"
       }, 
       "id": 14
     }, 
@@ -18553,7 +18567,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEG", 
-        "name": "Galway"
+        "name": "Galway",
+        "region": "Northern & Western"
       }, 
       "id": 15
     }, 
@@ -20731,7 +20746,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEMO", 
-        "name": "Mayo"
+        "name": "Mayo",
+        "region": "Northern & Western"
       }, 
       "id": 16
     }, 
@@ -22051,7 +22067,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IESO", 
-        "name": "Sligo"
+        "name": "Sligo",
+        "region": "Northern & Western"
       }, 
       "id": 17
     }, 
@@ -23331,7 +23348,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEMH", 
-        "name": "Meath"
+        "name": "Meath",
+        "region": "Eastern & Midland"
       }, 
       "id": 18
     }, 
@@ -24263,7 +24281,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEKE", 
-        "name": "Kildare"
+        "name": "Kildare",
+        "region": "Eastern & Midland"
       }, 
       "id": 19
     }, 
@@ -24983,7 +25002,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IECW", 
-        "name": "Carlow"
+        "name": "Carlow",
+        "region": "Southern"
       }, 
       "id": 20
     }, 
@@ -25911,7 +25931,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IELS", 
-        "name": "Laoighis"
+        "name": "Laoighis",
+        "region": "Eastern & Midland"
       }, 
       "id": 21
     }, 
@@ -27163,7 +27184,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEOY", 
-        "name": "Offaly"
+        "name": "Offaly",
+        "region": "Eastern & Midland"
       }, 
       "id": 22
     }, 
@@ -28127,7 +28149,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IEWH", 
-        "name": "Westmeath"
+        "name": "Westmeath",
+        "region": "Eastern & Midland"
       }, 
       "id": 23
     }, 
@@ -28855,7 +28878,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IELD", 
-        "name": "Longford"
+        "name": "Longford",
+        "region": "Eastern & Midland"
       }, 
       "id": 24
     }, 
@@ -30215,7 +30239,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IERN", 
-        "name": "Roscommon"
+        "name": "Roscommon",
+        "region": "Northern & Western"
       }, 
       "id": 25
     }, 
@@ -31803,7 +31828,8 @@
       "properties": {
         "source": "https://simplemaps.com", 
         "id": "IETA", 
-        "name": "Tipperary"
+        "name": "Tipperary",
+        "region": "Southern"
       }, 
       "id": 26
     }
