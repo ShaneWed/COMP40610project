@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "hconcat": [
+    {
+      "description": "Lorem ipsum dolor sit bar chart ITA02",
+      "data": {
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {"filter": "datum['NUTS 2 Region'] !== 'Ireland'"},
+        {"filter": "datum['Destination'] == 'All Destinations'"},
+        {"filter": "datum['Degree of Urbanisation'] == 'All degrees of urbanisation'"},
+        {"filter": {"param": "residencyStatus"}},
+        {"filter": {"param": "regionSelect"}},
+        {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"}
+      ],
+      "params": [
+        {
+          "name": "residencyStatus",
+          "select": {
+            "type": "point",
+            "fields": ["Statistic Label"],
+            "toggle": "event.shiftKey"
+          },
+          "bind": "legend"
+        }
+      ],
+      "title": "Tourism by region",
+      "mark": {
+        "type": "bar",
+        "color": "darkgreen"
+      },
+      "encoding": {
+        "x": {
+          "field": "NUTS 2 Region",
+          "type": "nominal",
+          "sort": "-y",
+          "axis": {
+            "title": "Region",
+            "titleFontSize": 20,
+            "titleFont": "Calibri",
+            "labelFont": "Calibri",
+            "labelFontSize": 12,
+            "labelAngle": -30
+          }
+        },
+        "xOffset": {
+          "field": "Statistic Label"
+        },
+        "y": {
+          "field": "Nights Millions",
+          "type": "quantitative",
+          "axis": {
+            "title": "Nights spent (millions)",
+            "titleFontSize": 20,
+            "titleFont": "Calibri"
+          }
+        },
+        "color": {
+          "field": "Statistic Label",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Irish Resident", "Non-Irish Resident"],
+            "range": ["#373D20", "#B1CC74"]
+          },
+          "title": "Residency"
+        }
+      },
+      "width": 100
+    },
+
+    {
+      "description": "Lorem ipsum dolor sit line chart ITA04",
+      "data": {
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnhD9y0GpYaKCxRNqfZ5eyYSiiK6vuTePBBRq5vxflC9AoJOKFyE0n_21DyamARP17epyPl0JP8dnT/pub?output=csv",
+        "format": {"type": "csv"}
+      },
+      "title": "Destination of Irish Residents",
+      "mark": {
+        "type": "line",
+        "color": "darkolivegreen"
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "title": "",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "VALUE",
+          "title": "Percent",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Destination",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Domestic", "Outbound"],
+            "range": ["#373D20", "#B1CC74"]
+          }
+        }
+      }
+    },
+
+    {
+      "description": "BIG MAP",
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandGeoJSON.json"
+      },
+      "projection": {"type": "mercator"},
+      "params": [
+        {
+          "name": "regionSelect",
+          "select": {"type": "point", "fields": ["NUTS 2 Region"], "on": "click", "empty": "all"}
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "black"},
+      "encoding": {
+        "color": {
+          "field": "NUTS 2 Region",
+          "type": "nominal",
+          "legend": null
+        }
+      }
+    }
+  ]
+}
