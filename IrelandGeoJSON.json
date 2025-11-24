@@ -1993,7 +1993,10 @@
         "id": "IEDL", 
         "name": "Donegal",
         "region": "Northern & Western"
-      }, 
+      },
+      "style": {
+        "fill": "green"
+      },
       "id": 1
     }, 
     {
