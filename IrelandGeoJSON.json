@@ -1992,10 +1992,8 @@
         "source": "https://simplemaps.com", 
         "id": "IEDL", 
         "name": "Donegal",
-        "region": "Northern & Western"
-      },
-      "style": {
-        "fill": "green"
+        "region": "Northern & Western",
+        "fill": "#008000"
       },
       "id": 1
     }, 
