@@ -1,30 +1,49 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "params": [
+        {
+          "name": "residencyStatus",
+          "select": {
+            "type": "point",
+            "fields": ["Statistic Label"],
+            "toggle": "true"
+          },
+          "bind": "legend"
+        },
+        {
+          "name": "yearSelect",
+          "value": 2022,
+          "bind": {
+            "input": "select",
+            "options": [2017, 2018, 2019, 2020, 2021, 2022],
+            "name": "Year - "
+          }
+        }
+  ],
   "hconcat": [
     {
       "description": "Lorem ipsum dolor sit bar chart ITA02",
       "data": {
         "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
-        "format": {"type": "csv"}
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Year": "number"
+          }
+        }
       },
       "transform": [
         {"filter": "datum['NUTS 2 Region'] !== 'Ireland'"},
         {"filter": "datum['Destination'] == 'All Destinations'"},
         {"filter": "datum['Degree of Urbanisation'] == 'All degrees of urbanisation'"},
         {"filter": {"param": "residencyStatus"}},
-        {"filter": {"param": "regionSelect"}},
+        {"filter": "toNumber(datum.Year) == toNumber(yearSelect)"},
         {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"}
-      ],
-      "params": [
-        {
-          "name": "residencyStatus",
-          "select": {
-            "type": "point",
-            "fields": ["Statistic Label"],
-            "toggle": "event.shiftKey"
-          },
-          "bind": "legend"
-        }
       ],
       "title": "Tourism by region",
       "mark": {
@@ -46,7 +65,10 @@
           }
         },
         "xOffset": {
-          "field": "Statistic Label"
+          "field": "Statistic Label",
+          "scale": {
+            "domain": ["Irish Resident", "Non-Irish Resident"]
+          }
         },
         "y": {
           "field": "Nights Millions",
@@ -66,16 +88,39 @@
           },
           "title": "Residency"
         }
-      },
-      "width": 100
+      }
     },
-
     {
-      "description": "Lorem ipsum dolor sit line chart ITA04",
+      "description": "Map of Ireland with color coded regions",
+      "title": "Color-coded regions",
       "data": {
-        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnhD9y0GpYaKCxRNqfZ5eyYSiiK6vuTePBBRq5vxflC9AoJOKFyE0n_21DyamARP17epyPl0JP8dnT/pub?output=csv",
+        "values": [
+          {"img": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandCountiesFilledITA.png"}
+        ]
+      },
+      "mark": {
+        "type": "image",
+        "aspect": true,
+        "height": 400,
+        "width": 400
+      },
+      "encoding": {
+        "url": {"field": "img"}
+      }
+    },
+    {
+      "description": "Lorem ipsum dolor sit line chart ITA02",
+      "data": {
+        "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
         "format": {"type": "csv"}
       },
+      "transform": [
+        {"filter": "datum['NUTS 2 Region'] !== 'Ireland'"},
+        {"filter": "datum['Destination'] == 'All Destinations'"},
+        {"filter": "datum['Degree of Urbanisation'] == 'All degrees of urbanisation'"},
+        {"filter": "datum['Statistic Label'] == 'Irish Resident'"},
+        {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"}
+      ],
       "title": "Destination of Irish Residents",
       "mark": {
         "type": "line",
@@ -84,43 +129,21 @@
       "encoding": {
         "x": {
           "field": "Year",
-          "title": "",
+          "title": "Year",
           "type": "temporal"
         },
         "y": {
-          "field": "VALUE",
+          "field": "Nights Millions",
           "title": "Percent",
           "type": "quantitative"
         },
         "color": {
-          "field": "Destination",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Domestic", "Outbound"],
-            "range": ["#373D20", "#B1CC74"]
-          }
-        }
-      }
-    },
-
-    {
-      "description": "BIG MAP",
-      "data": {
-        "url": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandGeoJSON.json"
-      },
-      "projection": {"type": "mercator"},
-      "params": [
-        {
-          "name": "regionSelect",
-          "select": {"type": "point", "fields": ["NUTS 2 Region"], "on": "click", "empty": "all"}
-        }
-      ],
-      "mark": {"type": "geoshape", "stroke": "black"},
-      "encoding": {
-        "color": {
           "field": "NUTS 2 Region",
           "type": "nominal",
-          "legend": null
+          "scale": {
+            "domain": ["Eastern & Midland", "Southern", "Northern & Western"],
+            "range": ["#008000", "#FF0000", "#0000FF"]
+          }
         }
       }
     }
