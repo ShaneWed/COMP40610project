@@ -7,7 +7,11 @@
   },
   "title": {
     "text": "Tourism in Ireland by Region",
+    "font": "serif",
     "fontSize": 24,
+    "subtitle": "Measured by nights spent in tourist accommodation",
+    "subtitleFont": "serif",
+    "subtitlePadding": 4,
     "anchor": "middle"
   },
   "params": [
@@ -26,14 +30,18 @@
           "bind": {
             "input": "select",
             "options": [2017, 2018, 2019, 2020, 2021, 2022],
-            "name": "Year:"
+            "name": "Year"
           }
         }
   ],
   "hconcat": [
     {
       "description": "Map of Ireland with color coded regions",
-      "title": "Republic of Ireland, color coded",
+      "title": {
+        "text": "Republic of Ireland, color coded",
+        "font": "serif",
+        "fontSize": 18
+      },
       "data": {
         "values": [
           {"img": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandCountiesFilledITA.png"}
@@ -53,7 +61,7 @@
     {
       "vconcat": [
         {
-      "description": "Lorem ipsum dolor sit bar chart ITA02",
+      "description": "ITA02 - Horizontal bar chart",
       "data": {
         "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
         "format": {
@@ -71,7 +79,11 @@
         {"filter": "toNumber(datum.Year) == toNumber(yearSelect)"},
         {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"}
       ],
-      "title": "Tourism by region",
+      "title": {
+        "text": "Tourism by Irish Residents and Non-Residents",
+        "font": "serif",
+        "fontSize": 18
+      },
       "mark": {
         "type": "bar"
       },
@@ -81,10 +93,8 @@
           "type": "nominal",
           "axis": {
             "title": "",
-            "titleFontSize": 20,
-            "titleFont": "Calibri",
-            "labelFont": "Calibri",
-            "labelFontSize": 12
+            "labelFont": "serif",
+            "labelFontSize": 14
           }
         },
         "yOffset": {
@@ -98,8 +108,10 @@
           "type": "quantitative",
           "axis": {
             "title": "Nights spent (millions)",
-            "titleFontSize": 20,
-            "titleFont": "Calibri"
+            "titleFontSize": 14,
+            "titleFont": "serif",
+            "labelFont": "serif",
+            "labelFontSize": 12
           }
         },
         "color": {
@@ -110,7 +122,12 @@
         "opacity": {
           "field": "Statistic Label",
           "type": "nominal",
-          "legend": {"title": "Residency Status"},
+          "legend": {
+            "title": "Residency Status",
+            "titleFont": "serif",
+            "titleFontSize": 12,
+            "labelFont": "serif"
+          },
           "scale": {
             "domain": ["Irish Resident", "Non-Irish Resident"],
             "range": [1, 0.5]
@@ -119,7 +136,7 @@
       }
     },
     {
-      "description": "Lorem ipsum dolor sit line chart ITA02",
+      "description": "ITA02 - Line chart",
       "data": {
         "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
         "format": {"type": "csv"}
@@ -128,9 +145,14 @@
         {"filter": "datum['NUTS 2 Region'] !== 'Ireland'"},
         {"filter": "datum['Destination'] == 'All Destinations'"},
         {"filter": "datum['Degree of Urbanisation'] == 'All degrees of urbanisation'"},
-        {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"}
+        {"calculate": "datum['VALUE'] / 1e6", "as": "Nights Millions"},
+        {"filter": {"param": "residencyStatus"}}
       ],
-      "title": "Irish tourism destinations since 2017",
+      "title": {
+        "text": "Tourist destinations, Republic of Ireland",
+        "font": "serif",
+        "fontSize": 18
+      },
       "mark": {
         "type": "line"
       },
@@ -138,13 +160,25 @@
         "x": {
           "field": "Year",
           "title": "Year",
-          "type": "temporal"
+          "type": "temporal",
+          "axis": {
+            "titleFont": "serif",
+            "titleFontSize": 14,
+            "labelFont": "serif",
+            "labelFontSize": 12
+          }
         },
         "y": {
           "field": "Nights Millions",
           "aggregate": "sum",
-          "title": "Percent",
-          "type": "quantitative"
+          "title": "Nights spent (millions)",
+          "type": "quantitative",
+          "axis": {
+            "labelFont": "serif",
+            "labelFontSize": 12,
+            "titleFont": "serif",
+            "titleFontSize": 14
+          }
         },
         "color": {
           "field": "NUTS 2 Region",
