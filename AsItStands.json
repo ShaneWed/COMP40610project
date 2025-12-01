@@ -5,6 +5,11 @@
       "color": "independent"
     }
   },
+  "title": {
+    "text": "Tourism in Ireland by Region",
+    "fontSize": 24,
+    "anchor": "middle"
+  },
   "params": [
         {
           "name": "residencyStatus",
@@ -27,6 +32,27 @@
   ],
   "hconcat": [
     {
+      "description": "Map of Ireland with color coded regions",
+      "title": "Republic of Ireland, color coded",
+      "data": {
+        "values": [
+          {"img": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandCountiesFilledITA.png"}
+        ]
+      },
+      "mark": {
+        "type": "image",
+        "aspect": true,
+        "height": 400,
+        "width": 400
+      },
+      "encoding": {
+        "url": {"field": "img"},
+        "y": {"value": 200}
+      }
+    },
+    {
+      "vconcat": [
+        {
       "description": "Lorem ipsum dolor sit bar chart ITA02",
       "data": {
         "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEBPHWJmRPJBUohzxDzF2r7qDhB1gRIOAg1csWPFtUHJgvDYkRs1uYuknv0dk5oSi0Yjeu1dHapXtk/pub?output=csv",
@@ -47,30 +73,27 @@
       ],
       "title": "Tourism by region",
       "mark": {
-        "type": "bar",
-        "color": "darkgreen"
+        "type": "bar"
       },
       "encoding": {
-        "x": {
+        "y": {
           "field": "NUTS 2 Region",
           "type": "nominal",
-          "sort": "-y",
           "axis": {
             "title": "",
             "titleFontSize": 20,
             "titleFont": "Calibri",
             "labelFont": "Calibri",
-            "labelFontSize": 12,
-            "labelAngle": -30
+            "labelFontSize": 12
           }
         },
-        "xOffset": {
+        "yOffset": {
           "field": "Statistic Label",
           "scale": {
             "domain": ["Irish Resident", "Non-Irish Resident"]
           }
         },
-        "y": {
+        "x": {
           "field": "Nights Millions",
           "type": "quantitative",
           "axis": {
@@ -82,38 +105,17 @@
         "color": {
           "field": "NUTS 2 Region",
           "type": "nominal",
-          "scale": {
-            "domain": ["Eastern & Midland", "Northern & Western", "Southern"],
-            "range": ["#0000FF", "#008000", "#FF0000"]
-          },
-          "title": "Region"
+          "legend": null
         },
-        "fillOpacity": {
+        "opacity": {
           "field": "Statistic Label",
           "type": "nominal",
+          "legend": {"title": "Residency Status"},
           "scale": {
             "domain": ["Irish Resident", "Non-Irish Resident"],
             "range": [1, 0.5]
           }
         }
-      }
-    },
-    {
-      "description": "Map of Ireland with color coded regions",
-      "title": "Color-coded regions",
-      "data": {
-        "values": [
-          {"img": "https://raw.githubusercontent.com/ShaneWed/COMP40610project/refs/heads/master/IrelandCountiesFilledITA.png"}
-        ]
-      },
-      "mark": {
-        "type": "image",
-        "aspect": true,
-        "height": 400,
-        "width": 400
-      },
-      "encoding": {
-        "url": {"field": "img"}
       }
     },
     {
@@ -150,10 +152,12 @@
           "scale": {
             "domain": ["Eastern & Midland", "Southern", "Northern & Western"],
             "range": ["#0000FF", "#FF0000", "#008000"]
-          },
-          "title": "Region"
+          }
         }
       }
     }
+      ]
+    }
+
   ]
 }
